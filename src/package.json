@@ -1,0 +1,15 @@
+{
+  "name": "multistage-production-pipeline",
+  "version": "1.0.0",
+  "description": "A multi-stage production-grade CI/CD pipeline with Jenkins orchestration",
+  "main": "index.js",
+  "author": "Neha Chaturvedi",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "start": "yarn script.js",
+    "build": "echo 'Building the application...'",
+    "test": "echo 'Running tests...'",
+    "deploy": "echo 'Deploying the application...'"
+  }
+}

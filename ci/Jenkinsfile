@@ -1,0 +1,41 @@
+pipeline {
+    agent any
+    stages{
+        stage('Checkout') {
+            steps {
+                echo 'Checking out the code...'
+                checkout scm
+            }
+        }
+        stage('Install Dependencies') {
+            steps {
+                echo 'Installing dependencies...'
+                sh 'yarn install'
+            }
+        }
+        stage('Build') {
+            steps {
+                echo 'Building the JS application...'
+                sh 'yarn build'
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'Running tests...'
+                sh 'yarn test'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying the application...'
+                sh 'yarn deploy'
+            }
+        }
+    }
+    post {
+        always {
+            echo 'Cleaning up...'
+            sh 'yarn clean'
+        }
+    }
+}
