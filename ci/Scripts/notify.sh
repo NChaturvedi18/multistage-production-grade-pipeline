@@ -6,7 +6,7 @@ emailNotification() {
         echo "Build and deployment completed successfully." | mail -s "Notification" Neha.Chaturvedi181993.nc@gmail.com
 }
 
-emailNotification()
+emailNotification
 if [ $? -eq 0 ]; then
     echo "Email notification sent successfully."
 else

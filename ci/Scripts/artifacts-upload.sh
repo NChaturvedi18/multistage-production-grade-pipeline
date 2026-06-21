@@ -16,4 +16,4 @@ artifactsUpload() {
   fi
 }
 
-artifactsUpload()
+artifactsUpload
