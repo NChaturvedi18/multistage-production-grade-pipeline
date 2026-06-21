@@ -22,3 +22,4 @@ else
     echo "Failed to send email notification. Exiting."
     exit 1
 fi
+

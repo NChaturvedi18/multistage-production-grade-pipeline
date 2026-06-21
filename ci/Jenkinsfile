@@ -42,9 +42,21 @@ pipeline {
         }
     }
     post {
-        always {
-            echo 'Notifying stakeholders...'
+    success {
+        // 1. Safely bind your secure credentials for the success condition
+        withCredentials([usernamePassword(credentialsId: 'Neha.Chaturvedi181993', 
+                                            usernameVariable: 'SMTP_USER', 
+                                            passwordVariable: 'SMTP_PASS')]) {
+            
+            echo 'Pipeline succeeded! Triggering notification script...'
+            
+            # 2. Execute your clean shell script file safely
                     sh "bash ${env.WORKSPACE}/ci/Scripts/notify.sh"
         }
     }
+    
+    failure {
+        echo 'Pipeline failed. Notification script skipped or can be handled here.'
+    }
+}
 }
