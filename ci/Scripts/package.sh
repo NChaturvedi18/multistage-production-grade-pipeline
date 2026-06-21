@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 echo "Packaging the application..."
 
 package() {

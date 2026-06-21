@@ -1,8 +1,10 @@
+#!/usr/bin/env bash
+
 echo "Uploading artifacts..."
 
 artifactsUpload() {
   # 1. Create the target directory safely if it doesn't exist
-  mkdir -p "temp"
+  mkdir -p "temp/txt.js"
 
   echo "Uploading artifacts..."
   
