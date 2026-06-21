@@ -10,7 +10,13 @@ emailNotification() {
     --mail-from "${SMTP_USER}" \
     --mail-rcpt 'Neha.Chaturvedi181993.nc@gmail.com' \
     --user "${SMTP_USER}:${SMTP_PASS}" \
-    -T
+    -T <<EOF
+From: Jenkins Automation <${SMTP_USER}>
+To: Neha <Neha.Chaturv.nc@gmail.com>
+Subject: Pipeline Success!
+
+Build and deployment completed successfully.
+EOF
 
   echo "Email notification sent successfully."
 }
