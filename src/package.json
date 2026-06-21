@@ -8,7 +8,6 @@
   "private": false,
   "scripts": {
     "start": "yarn script.js",
-    "up": "yarn install",
     "build": "echo 'Building the application...'",
     "test": "echo 'Running tests...'",
     "deploy": "echo 'Deploying the application...'",

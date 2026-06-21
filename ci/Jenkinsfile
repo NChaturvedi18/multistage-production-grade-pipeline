@@ -10,7 +10,10 @@ pipeline {
         stage('Install Dependencies') {
             steps {
                 echo 'Installing dependencies...'
-                sh 'yarn up'
+                sh '''
+                    npm install -g yarn || true
+                    yarn install
+                '''
             }
         }
         stage('Build') {
