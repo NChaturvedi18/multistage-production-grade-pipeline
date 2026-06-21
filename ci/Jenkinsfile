@@ -10,7 +10,7 @@ pipeline {
         stage('Install Dependencies') {
             steps {
                 echo 'Installing dependencies...'
-                sh 'yarn install'
+                sh 'yarn up'
             }
         }
         stage('Build') {
