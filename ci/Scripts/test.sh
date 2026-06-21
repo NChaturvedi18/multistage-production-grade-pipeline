@@ -2,11 +2,7 @@ echo "Running tests, here we make sure Unit test, Integration & Static analysis 
 
 test() {
     echo "Running tests..."
-    dir(src) { 
-        sh '''
-            yarn test
-        '''
-    }
+        sh "yarn test"
 }
 
 if [test]; then
