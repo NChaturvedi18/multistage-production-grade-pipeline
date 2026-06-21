@@ -13,31 +13,31 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building the JS application...'
-                    sh 'bash ${env.WORKSPACE}/ci/Scripts/build.sh'
+                sh "bash ${env.WORKSPACE}/ci/Scripts/build.sh"
             }
         }
         stage('Test') {
             steps {
                 echo 'Running tests...'
-                    sh 'bash ${env.WORKSPACE}/ci/Scripts/test.sh'
+                sh "bash ${env.WORKSPACE}/ci/Scripts/test.sh"
             }
         }
         stage('Package') {
             steps {
                 echo 'Packaging the application...'
-                    sh 'bash ${env.WORKSPACE}/ci/Scripts/package.sh'
+                sh "bash ${env.WORKSPACE}/ci/Scripts/package.sh"
             }
         }
         stage('Generate Artifacts') {
             steps {
                 echo 'Generating artifacts...'
-                    sh 'bash ${env.WORKSPACE}/ci/Scripts/artifacts-upload.sh'
+                sh "bash ${env.WORKSPACE}/ci/Scripts/artifacts-upload.sh"
             }
         }
         stage('Deploy') {
             steps {
                 echo 'Deploying the application...'
-                    sh 'bash ${env.WORKSPACE}/ci/Scripts/deploy.sh'
+                sh "bash ${env.WORKSPACE}/ci/Scripts/deploy.sh"
             }
         }
     }
@@ -45,7 +45,7 @@ pipeline {
         always {
             echo 'Notifying stakeholders...'
             dir('src') {
-                sh 'bash ${env.WORKSPACE}/ci/Scripts/notify.sh'
+                    sh "bash ${env.WORKSPACE}/ci/Scripts/notify.sh"
             }
         }
     }
