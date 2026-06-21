@@ -3,11 +3,16 @@
 echo "Notifying stakeholders..."
 
 emailNotification() {
-    echo "Sending email notification..."
-        # Replace with your email sending command or script
-        mail to: 'Neha.Chaturvedi181993.nc@gmail.com',
-        subject: "Pipeline Success: ${env.JOB_NAME} [Build #${env.BUILD_NUMBER}]",
-        body: "Hi Neha,\n\nThe build and deployment completed successfully.\n\nView details here: ${env.BUILD_URL}"
+  echo "Sending pipeline success email notification securely..."
+
+  curl --url 'smtps://://gmail.com' \
+    --ssl-reqd \
+    --mail-from "${SMTP_USER}" \
+    --mail-rcpt 'Neha.Chaturvedi181993.nc@gmail.com' \
+    --user "${SMTP_USER}:${SMTP_PASS}" \
+    -T
+
+  echo "Email notification sent successfully."
 }
 
 emailNotification
