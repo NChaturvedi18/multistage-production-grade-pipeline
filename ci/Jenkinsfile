@@ -44,9 +44,7 @@ pipeline {
     post {
         always {
             echo 'Notifying stakeholders...'
-            dir('src') {
                     sh "bash ${env.WORKSPACE}/ci/Scripts/notify.sh"
-            }
         }
     }
 }
