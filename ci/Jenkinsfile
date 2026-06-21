@@ -13,36 +13,46 @@ pipeline {
         stage('Install Dependencies') {
             steps {
                 echo 'Installing dependencies...'
-                sh '''
-                    npm install -g yarn || true
-                    yarn install
-                    yarn --version
-                '''
+                dir('src') {
+                    sh '''
+                        npm install -g yarn || true
+                        yarn install
+                        yarn --version
+                    '''
+                }
             }
         }
         stage('Build') {
             steps {
                 echo 'Building the JS application...'
-                sh 'yarn build'
+                dir('src') {
+                    sh 'yarn build'
+                }
             }
         }
         stage('Test') {
             steps {
                 echo 'Running tests...'
-                sh 'yarn test'
+                dir('src') {
+                    sh 'yarn test'
+                }
             }
         }
         stage('Deploy') {
             steps {
                 echo 'Deploying the application...'
-                sh 'yarn deploy'
+                dir('src') {
+                    sh 'yarn deploy'
+                }
             }
         }
     }
     post {
         always {
             echo 'Cleaning up...'
-            sh 'yarn clean'
+            dir('src') {
+                sh 'yarn clean'
+            }
         }
     }
 }

@@ -7,7 +7,7 @@
   "license": "MIT",
   "private": false,
   "scripts": {
-    "start": "yarn script.js",
+    "yarn start": "node /src/script.js",
     "build": "echo 'Building the application...'",
     "test": "echo 'Running tests...'",
     "deploy": "echo 'Deploying the application...'",
