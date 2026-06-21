@@ -2,10 +2,11 @@ echo "Running tests, here we make sure Unit test, Integration & Static analysis 
 
 test() {
     echo "Running tests..."
-        sh "yarn test"
+    yarn test
 }
 
-if [test]; then
+test
+if [ $? -eq 0 ]; then
     echo "Tests passed successfully."
 else
     echo "Tests failed. Exiting."

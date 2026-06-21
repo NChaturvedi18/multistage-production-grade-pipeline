@@ -1,23 +1,22 @@
+#!/usr/bin/env bash
+
 echo "Building the application..."
 
 installDependencies() {
     echo "Installing dependencies..."
-    sh '''
-        npm install -g yarn || true
-        yarn install
-        yarn --version
-    '''
+    npm install -g yarn || true
+    yarn install
+    yarn --version
 }
 
 buildApplication() {
     echo "Building the application..."
-    sh '''
-        yarn build
-    '''
+    yarn build
 }
 
 installDependencies
-if [installDependencies]; then
+
+if [ $? -eq 0 ]; then
     buildApplication
 else
     echo "Dependency installation failed. Exiting."

@@ -2,10 +2,11 @@ echo "Deploying the application..."
 
 deploy() {
     echo "Deploying the application..."
-        sh "yarn deploy"
+        yarn deploy
 }
 
-if [deploy]; then
+deploy
+if [ $? -eq 0 ]; then
     echo "Deployment completed successfully."
 else
     echo "Deployment failed. Exiting."
