@@ -14,7 +14,7 @@ pipeline {
             steps {
                 echo 'Building the JS application...'
                 dir('src') {
-                    sh 'bash build.sh'
+                    sh 'bash ci/Scripts/build.sh'
                 }
             }
         }
@@ -22,7 +22,7 @@ pipeline {
             steps {
                 echo 'Running tests...'
                 dir('src') {
-                    sh 'bash test.sh'
+                    sh 'bash ci/Scripts/test.sh'
                 }
             }
         }
@@ -30,7 +30,7 @@ pipeline {
             steps {
                 echo 'Packaging the application...'
                 dir('src') {
-                    sh 'bash package.sh'
+                    sh 'bash ci/Scripts/package.sh'
                 }
             }
         }
@@ -46,7 +46,7 @@ pipeline {
             steps {
                 echo 'Deploying the application...'
                 dir('src') {
-                    sh 'bash deploy.sh'
+                    sh 'bash ci/Scripts/deploy.sh'
                 }
             }
         }
@@ -55,7 +55,7 @@ pipeline {
         always {
             echo 'Notifying stakeholders...'
             dir('src') {
-                sh 'bash notify.sh'
+                sh 'bash ci/Scripts/notify.sh'
             }
         }
     }
