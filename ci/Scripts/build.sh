@@ -2,18 +2,22 @@ echo "Building the application..."
 
 installDependencies() {
     echo "Installing dependencies..."
-    sh '''
-        npm install -g yarn || true
-        yarn install
-        yarn --version
-    '''
+    dir(src) {
+        sh '''
+            npm install -g yarn || true
+            yarn install
+            yarn --version
+        '''
+    }
 }
 
 buildApplication() {
     echo "Building the application..."
-    sh '''
-        yarn build
-    '''
+    dir(src) {
+        sh '''
+            yarn build
+        '''
+    }
 }
 
 installDependencies

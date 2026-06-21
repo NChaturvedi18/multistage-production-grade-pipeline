@@ -2,7 +2,9 @@ echo "Packaging the application..."
 
 package() {
     echo "Packaging the application..."
-    sh "yarn package"
+    dir(src) {
+        sh "yarn package"
+    }
 }
 
 if [package]; then

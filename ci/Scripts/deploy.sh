@@ -2,7 +2,9 @@ echo "Deploying the application..."
 
 deploy() {
     echo "Deploying the application..."
-    sh "yarn deploy"
+    dir(src) {
+        sh "yarn deploy"
+    }
 }
 
 if [deploy]; then
