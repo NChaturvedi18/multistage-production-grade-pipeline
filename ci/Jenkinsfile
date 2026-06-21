@@ -1,8 +1,7 @@
 pipeline {
-    agent {
-        docker {
-            image 'node:18'
-        }
+    agent any
+        tools {
+        nodejs 'Node-Yarn' // This must exactly match the Name you gave it in Step 2
     }
     stages{
         stage('Checkout') {
@@ -17,6 +16,7 @@ pipeline {
                 sh '''
                     npm install -g yarn || true
                     yarn install
+                    yarn --version
                 '''
             }
         }
