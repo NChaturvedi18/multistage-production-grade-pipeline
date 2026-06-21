@@ -5,14 +5,14 @@ echo "Notifying stakeholders..."
 emailNotification() {
   echo "Sending pipeline success email notification securely..."
 
-  curl --url 'smtps://://gmail.com' \
+  curl --url 'smtps://smtp.gmail.com:465' \
     --ssl-reqd \
     --mail-from "${SMTP_USER}" \
     --mail-rcpt 'Neha.Chaturvedi181993.nc@gmail.com' \
     --user "${SMTP_USER}:${SMTP_PASS}" \
-    -T <<EOF
+    -T - <<EOF
 From: Jenkins Automation <${SMTP_USER}>
-To: Neha <Neha.Chaturv.nc@gmail.com>
+To: Neha <Neha.Chaturvedi181993.nc@gmail.com>
 Subject: Pipeline Success!
 
 Build and deployment completed successfully.
