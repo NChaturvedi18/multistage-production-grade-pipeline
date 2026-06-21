@@ -49,9 +49,7 @@ pipeline {
                                             passwordVariable: 'SMTP_PASS')]) {
             
             echo 'Pipeline succeeded! Triggering notification script...'
-            
-            # 2. Execute your clean shell script file safely
-                    sh "bash ${env.WORKSPACE}/ci/Scripts/notify.sh"
+            sh "bash ${env.WORKSPACE}/ci/Scripts/notify.sh"
         }
     }
     
