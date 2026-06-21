@@ -13,41 +13,31 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building the JS application...'
-                dir('src') {
                     sh 'bash Scripts/build.sh'
-                }
             }
         }
         stage('Test') {
             steps {
                 echo 'Running tests...'
-                dir('src') {
                     sh 'bash Scripts/test.sh'
-                }
             }
         }
         stage('Package') {
             steps {
                 echo 'Packaging the application...'
-                dir('src') {
                     sh 'bash Scripts/package.sh'
-                }
             }
         }
         stage('Generate Artifacts') {
             steps {
                 echo 'Generating artifacts...'
-                dir('src') {
                     sh 'bash Scripts/artifacts-upload.sh'
-                }
             }
         }
         stage('Deploy') {
             steps {
                 echo 'Deploying the application...'
-                dir('src') {
                     sh 'bash Scripts/deploy.sh'
-                }
             }
         }
     }
